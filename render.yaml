@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: prana-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: LLM_MODEL
+        value: openai/gpt-oss-20b
+      - key: FLASK_SECRET_KEY
+        generateValue: true
+      - key: DATABASE_PATH
+        value: prana.db
+      - key: FLASK_DEBUG
+        value: false
+      - key: CORS_ORIGINS
+        value: https://prana-ebon.vercel.app

@@ -31,20 +31,27 @@ def create_app():
     app = Flask(__name__)
     app.config["SECRET_KEY"] = Config.SECRET_KEY
 
-    # Enable CORS for React dev server (Vite runs on 5173)
+    # Enable CORS for frontend (local dev + Vercel production)
+    allowed_origins = [
+        "http://localhost:5173",
+        "http://localhost:5174",
+        "http://localhost:5175",
+        "http://localhost:5176",
+        "http://localhost:3000",
+        "http://127.0.0.1:5173",
+        "http://127.0.0.1:5174",
+        "http://127.0.0.1:5175",
+        "http://127.0.0.1:5176",
+        "https://prana-ebon.vercel.app",
+    ]
+    # Allow additional origins from env (comma-separated)
+    extra = os.getenv("CORS_ORIGINS", "")
+    if extra:
+        allowed_origins.extend([o.strip() for o in extra.split(",") if o.strip()])
+
     CORS(app, resources={
         r"/api/*": {
-            "origins": [
-                "http://localhost:5173",
-                "http://localhost:5174",
-                "http://localhost:5175",
-                "http://localhost:5176",
-                "http://localhost:3000",
-                "http://127.0.0.1:5173",
-                "http://127.0.0.1:5174",
-                "http://127.0.0.1:5175",
-                "http://127.0.0.1:5176",
-            ],
+            "origins": allowed_origins,
             "methods": ["GET", "POST", "DELETE", "OPTIONS"],
             "allow_headers": ["Content-Type"],
         }
