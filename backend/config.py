@@ -8,7 +8,9 @@ class Config:
     """Application configuration loaded from .env file."""
 
     SECRET_KEY = os.getenv("FLASK_SECRET_KEY", "prana-default-secret")
-    DATABASE_PATH = os.getenv("DATABASE_PATH", "prana.db")
+    # On Vercel serverless, use /tmp (writable); locally use the configured path
+    _default_db = "/tmp/prana.db" if os.getenv("VERCEL") else "prana.db"
+    DATABASE_PATH = os.getenv("DATABASE_PATH", _default_db)
     GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
     TAVILY_API_KEY = os.getenv("TAVILY_API_KEY", "")
     LLM_MODEL = os.getenv("LLM_MODEL", "openai/gpt-oss-20b")
