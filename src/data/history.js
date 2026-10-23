@@ -1,0 +1,42 @@
+export const searchHistory = [
+  {
+    id: 'h1',
+    symptoms: 'Sore throat and mild cough for three days',
+    date: '2024-12-08',
+    riskLevel: 'low',
+    remediesFound: 3,
+    savedRemedies: ['ginger-honey-decoction', 'tulsi-tea'],
+  },
+  {
+    id: 'h2',
+    symptoms: 'Mild headache and nasal congestion',
+    date: '2024-12-05',
+    riskLevel: 'low',
+    remediesFound: 2,
+    savedRemedies: ['turmeric-milk'],
+  },
+  {
+    id: 'h3',
+    symptoms: 'Stomach discomfort after meals',
+    date: '2024-11-28',
+    riskLevel: 'moderate',
+    remediesFound: 2,
+    savedRemedies: [],
+  },
+  {
+    id: 'h4',
+    symptoms: 'Seasonal cold with sneezing and body ache',
+    date: '2024-11-20',
+    riskLevel: 'low',
+    remediesFound: 3,
+    savedRemedies: ['ginger-honey-decoction'],
+  },
+  {
+    id: 'h5',
+    symptoms: 'Chest pain and difficulty breathing',
+    date: '2024-11-15',
+    riskLevel: 'high',
+    remediesFound: 0,
+    savedRemedies: [],
+  },
+];

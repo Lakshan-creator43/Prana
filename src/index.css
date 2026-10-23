@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ───── Base ───── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #050505;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ───── Selection ───── */
+::selection {
+  background: #D6AD6C;
+  color: #050505;
+}
+
+::-moz-selection {
+  background: #D6AD6C;
+  color: #050505;
+}
+
+/* ───── Scrollbar ───── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 3px;
+  transition: background 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D6AD6C;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1a1a1a #0a0a0a;
+}
+
+/* ───── Typography ───── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
+  color: #F1E8D2;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* ───── Focus States ───── */
+:focus-visible {
+  outline: 2px solid #D6AD6C;
+  outline-offset: 2px;
+}
+
+/* ───── Canvas Container Mask ───── */
+.canvas-mask {
+  mask-image: radial-gradient(
+    ellipse 70% 65% at 50% 50%,
+    black 40%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 70% 65% at 50% 50%,
+    black 40%,
+    transparent 100%
+  );
+}
+
+/* ───── Mortar Fallback ───── */
+.mortar-fallback {
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+
+.mortar-fallback::before {
+  content: '';
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 45%;
+  background: radial-gradient(ellipse, #3d2b1a 0%, #2a1d10 80%);
+  border-radius: 0 0 50% 50% / 0 0 60% 60%;
+  box-shadow: 0 4px 30px rgba(214, 173, 108, 0.15);
+}
+
+.mortar-fallback::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 55%;
+  width: 8%;
+  height: 60%;
+  background: linear-gradient(to bottom, #5a4a3a, #3d2b1a);
+  border-radius: 4px;
+  transform: rotate(15deg);
+  transform-origin: bottom center;
+}
+
+/* ───── Animated Gradient Border ───── */
+.gold-glow {
+  box-shadow: 0 0 20px rgba(214, 173, 108, 0.15),
+              0 0 60px rgba(214, 173, 108, 0.05);
+}
+
+.gold-glow-strong {
+  box-shadow: 0 0 30px rgba(214, 173, 108, 0.25),
+              0 0 80px rgba(214, 173, 108, 0.1);
+}
+
+/* ───── Glass Effect ───── */
+.glass {
+  background: rgba(5, 5, 5, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(241, 232, 210, 0.06);
+}
+
+/* ───── Risk Ring Animation ───── */
+@keyframes ring-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+.ring-pulse {
+  animation: ring-pulse 3s ease-in-out infinite;
+}
+
+.ring-pulse-delayed {
+  animation: ring-pulse 3s ease-in-out 1s infinite;
+}
+
+.ring-pulse-delayed-2 {
+  animation: ring-pulse 3s ease-in-out 2s infinite;
+}
+
+/* ───── Knowledge Network Particles ───── */
+@keyframes travel {
+  0% { offset-distance: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+/* ───── Botanical Leaf Paths ───── */
+@keyframes drift-1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(15px, -20px) rotate(5deg); }
+  50% { transform: translate(-10px, -35px) rotate(-3deg); }
+  75% { transform: translate(20px, -15px) rotate(8deg); }
+}
+
+@keyframes drift-2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-20px, -15px) rotate(-5deg); }
+  50% { transform: translate(15px, -30px) rotate(4deg); }
+  75% { transform: translate(-10px, -20px) rotate(-7deg); }
+}
+
+@keyframes drift-3 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(10px, -25px) rotate(3deg); }
+  50% { transform: translate(-15px, -40px) rotate(-6deg); }
+  75% { transform: translate(5px, -10px) rotate(4deg); }
+}
+
+/* ───── Page transition ───── */
+.page-enter {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* ───── Reduced Motion ───── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ───── Utility ───── */
+.text-balance {
+  text-wrap: balance;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

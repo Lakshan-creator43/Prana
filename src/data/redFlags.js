@@ -1,0 +1,92 @@
+export const RED_FLAG_KEYWORDS = [
+  // Cardiovascular
+  'chest pain',
+  'heart attack',
+  'cardiac arrest',
+  'irregular heartbeat',
+  'heart palpitations',
+  'heart failure',
+  // Respiratory
+  'difficulty breathing',
+  'shortness of breath',
+  'blood in cough',
+  'coughing blood',
+  "can't breathe",
+  // Neurological
+  'severe headache',
+  'sudden numbness',
+  'loss of consciousness',
+  'fainting',
+  'seizure',
+  'stroke',
+  'blurred vision',
+  'slurred speech',
+  'paralysis',
+  'brain tumor',
+  // Cancer / serious diseases
+  'cancer',
+  'tumor',
+  'tumour',
+  'malignant',
+  'leukemia',
+  'lymphoma',
+  'melanoma',
+  'carcinoma',
+  'chemotherapy',
+  // Serious infections
+  'sepsis',
+  'tuberculosis',
+  'hiv',
+  'aids',
+  'hepatitis',
+  'malaria',
+  'dengue',
+  'meningitis',
+  // Organ failure
+  'kidney failure',
+  'liver failure',
+  'organ failure',
+  'pancreatitis',
+  'appendicitis',
+  // Bleeding / trauma
+  'blood in stool',
+  'blood in urine',
+  'uncontrolled bleeding',
+  'internal bleeding',
+  'severe burn',
+  'hemorrhage',
+  'fracture',
+  'broken bone',
+  'head injury',
+  'spinal injury',
+  'concussion',
+  // Mental health
+  'suicidal',
+  'suicide',
+  'self harm',
+  'self-harm',
+  // Allergic
+  'swelling of face',
+  'allergic reaction',
+  'anaphylaxis',
+  // Other critical
+  'severe abdominal pain',
+  'high fever',
+  'poisoning',
+  'overdose',
+  'diabetes',
+  'diabetic',
+  'thyroid',
+  'epilepsy',
+  'asthma attack',
+  'pneumonia',
+  'covid',
+  'blood clot',
+  'coma',
+  'unconscious',
+];
+
+export const checkRedFlags = (symptoms) => {
+  const lower = symptoms.toLowerCase();
+  return RED_FLAG_KEYWORDS.filter((flag) => lower.includes(flag));
+};
